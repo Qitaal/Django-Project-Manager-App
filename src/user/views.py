@@ -3,5 +3,5 @@ from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class Dashboard(LoginRequiredMixin, generic.TemplateView):
+class DashboardView(LoginRequiredMixin, generic.TemplateView):
     template_name = 'user/dashboard.html'
