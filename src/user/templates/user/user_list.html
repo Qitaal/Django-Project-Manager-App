@@ -5,7 +5,7 @@
 <section class="text-gray-600 body-font">
     <div class="container px-5 py-6 mx-auto">
 
-        <a class="hover:text-blue-700" href="#">Create new user</a>
+        <a class="hover:text-blue-700" href="{% url 'user:user-create' %}">Create new user</a>
         <div class="flex flex-wrap -m-2 mt-4">
             {% for user in users %}
 

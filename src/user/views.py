@@ -1,7 +1,10 @@
 from django.shortcuts import render
+from django.urls.base import reverse
 from django.views import generic
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .models import User
+from .forms import CustomUserCreationForm
 
 
 class DashboardView(LoginRequiredMixin, generic.TemplateView):
@@ -14,3 +17,11 @@ class UserListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return User.objects.all()
+
+
+class UserCreateView(LoginRequiredMixin, generic.CreateView):
+    template_name = 'user/user_create.html'
+    form_class = CustomUserCreationForm
+
+    def get_success_url(self):
+        return reverse('user:user-list')
