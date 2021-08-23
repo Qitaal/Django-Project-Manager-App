@@ -42,3 +42,14 @@ class UserDeleteView(LoginRequiredMixin, generic.DeleteView):
 
     def get_success_url(self):
         return reverse('user:user-list')
+
+
+class UserUpdateView(LoginRequiredMixin, generic.UpdateView):
+    template_name = 'user/user_update.html'
+    form_class = CustomUserCreationForm
+
+    def get_queryset(self):
+        return User.objects.all()
+
+    def get_success_url(self):
+        return reverse('user:user-detail', kwargs={'pk': self.get_object().id})
