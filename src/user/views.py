@@ -33,3 +33,12 @@ class UserDetailView(LoginRequiredMixin, generic.DetailView):
 
     def get_queryset(self):
         return User.objects.all()
+
+
+class UserDeleteView(LoginRequiredMixin, generic.DeleteView):
+
+    def get_queryset(self):
+        return User.objects.all()
+
+    def get_success_url(self):
+        return reverse('user:user-list')
