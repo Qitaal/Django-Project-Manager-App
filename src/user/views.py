@@ -25,3 +25,11 @@ class UserCreateView(LoginRequiredMixin, generic.CreateView):
 
     def get_success_url(self):
         return reverse('user:user-list')
+
+
+class UserDetailView(LoginRequiredMixin, generic.DetailView):
+    template_name = 'user/user_detail.html'
+    context_object_name = 'user'
+
+    def get_queryset(self):
+        return User.objects.all()
