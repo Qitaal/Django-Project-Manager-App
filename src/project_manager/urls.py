@@ -11,5 +11,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
+    path('project/', include('project.urls', namespace='project')),
     path('user/', include('user.urls', namespace='user')),
 ]
