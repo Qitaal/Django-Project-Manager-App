@@ -77,6 +77,8 @@
                 <div class="flex items-center pb-5 border-b-2 border-gray-100 mb-5">
                 </div>
                 <div class="flex">
+                    {% if request.user.role == 'Admin' %}
+
                     <a href="{% url 'user:user-update' user.id %}"
                         class="flex text-white bg-yellow-500 border-0 py-2 px-10 focus:outline-none hover:bg-yellow-600 rounded">
                         Edit
@@ -85,6 +87,8 @@
                         class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
                         Delete
                     </a>
+
+                    {% endif %}
                 </div>
             </div>
         </div>
